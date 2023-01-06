@@ -25,5 +25,8 @@
     "node-addon-api": "^5.0.0",
     "node-gyp": "^9.0.0",
     "prebuild-install": "^7.1.0"
+  },
+  "resolutions": {
+    "node-gyp": "^9.0.0"
   }
 }
