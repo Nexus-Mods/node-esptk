@@ -2,9 +2,6 @@
     "targets": [
         {
             "target_name": "esptk",
-            "includes": [
-                "auto.gypi"
-            ],
             "sources": [
                 "node_modules/esptk/src/espfile.cpp",
                 "node_modules/esptk/src/record.cpp",
@@ -64,8 +61,5 @@
                 }]
             ]
         }
-    ],
-    "includes": [
-        "auto-top.gypi"
     ]
 }
