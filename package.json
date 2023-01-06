@@ -8,8 +8,7 @@
   },
   "scripts": {
     "upload": "prebuild.cmd -r napi -t 4 -a x64 --prepack codesign",
-    "rebuild": "autogypi && node-gyp configure build",
-    "install": "prebuild-install -r napi -t 4 -a x64 || npm run rebuild"
+    "install": "prebuild-install -r napi -t 4 -a x64 || node-gyp rebuild"
   },
   "binary": {
     "napi_versions": [
@@ -22,7 +21,6 @@
     "prebuild": "^11.0.3"
   },
   "dependencies": {
-    "autogypi": "^0.2.2",
     "esptk": "TanninOne/modorganizer-esptk#noboost",
     "node-addon-api": "^5.0.0",
     "node-gyp": "^9.0.0",
