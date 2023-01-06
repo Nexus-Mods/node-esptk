@@ -1,10 +1,10 @@
-#include "esptk/src/espfile.h"
+#include <espfile.h>
 #include <vector>
 #include <napi.h>
 #include <string>
 #include "string_cast.h"
 #include <filesystem>
-#include "esptk/src/espexceptions.h"
+#include <espexceptions.h>
 
 namespace fs = std::filesystem;
 

@@ -7,11 +7,8 @@
     "url": "https://github.com/Nexus-Mods/node-esptk.git"
   },
   "scripts": {
-    "autogypi": "autogypi",
-    "node-gyp": "node-gyp",
     "upload": "prebuild.cmd -r napi -t 4 -a x64 --prepack codesign",
-    "submodules": "git clone --branch noboost --depth=1 https://github.com/TanninOne/modorganizer-esptk esptk || exit /b 0",
-    "rebuild": "npm run submodules && autogypi && node-gyp configure build",
+    "rebuild": "autogypi && node-gyp configure build",
     "install": "prebuild-install -r napi -t 4 -a x64 || npm run rebuild"
   },
   "binary": {
@@ -24,8 +21,9 @@
   },
   "dependencies": {
     "autogypi": "^0.2.2",
-    "node-addon-api": "^4.0.0",
+    "esptk": "TanninOne/modorganizer-esptk#noboost",
+    "node-addon-api": "^5.0.0",
     "node-gyp": "^9.0.0",
-    "prebuild-install": "7.1.0"
+    "prebuild-install": "^7.1.0"
   }
 }

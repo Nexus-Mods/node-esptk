@@ -6,20 +6,22 @@
                 "auto.gypi"
             ],
             "sources": [
-                "esptk/src/espfile.cpp",
-                "esptk/src/record.cpp",
-                "esptk/src/subrecord.cpp",
+                "node_modules/esptk/src/espfile.cpp",
+                "node_modules/esptk/src/record.cpp",
+                "node_modules/esptk/src/subrecord.cpp",
                 "string_cast.cpp",
                 "index.cpp"
             ],
             "include_dirs": [
-                "<!(node -p \"require('node-addon-api').include_dir\")"
+                "<!(node -p \"require('node-addon-api').include_dir\")",
+                "node_modules/esptk/src"
             ],
             "dependencies": [
               "<!(node -p \"require('node-addon-api').gyp\")"
             ],
             'cflags!': ['-fno-exceptions'],
             'cflags_cc!': ['-fno-exceptions'],
+            'cflags_cc': ['-std=c++17'],
             'msbuild_settings': {
               'ClCompile': {
                 'AdditionalOptions': ['-std:c++17']
