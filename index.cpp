@@ -60,6 +60,7 @@ private:
 #endif
   bool m_IsMaster;
   bool m_IsLight;
+  bool m_isMedium;
   bool m_IsDummy;
   uint32_t m_Revision;
   std::string m_Author;
@@ -73,6 +74,9 @@ public:
       InstanceMethod("setLightFlag", &ESPFile::setLightFlag),
       InstanceAccessor("isMaster", &ESPFile::isMaster, nullptr, napi_enumerable),
       InstanceAccessor("isLight", &ESPFile::isLight, nullptr, napi_enumerable),
+      
+      InstanceAccessor("isMedium", &ESPFile::isMedium, nullptr, napi_enumerable),
+
       InstanceAccessor("isDummy", &ESPFile::isDummy, nullptr, napi_enumerable),
       InstanceAccessor("author", &ESPFile::author, nullptr, napi_enumerable),
       InstanceAccessor("description", &ESPFile::description, nullptr, napi_enumerable),
@@ -118,6 +122,7 @@ public:
 
   Napi::Value isMaster(const Napi::CallbackInfo &info) { return Napi::Boolean::New(info.Env(), m_IsMaster); }
   Napi::Value isLight(const Napi::CallbackInfo &info) { return Napi::Boolean::New(info.Env(), m_IsLight); }
+  Napi::Value isMedium(const Napi::CallbackInfo &info) { return Napi::Boolean::New(info.Env(), m_isMedium); }
   Napi::Value isDummy(const Napi::CallbackInfo &info) { return Napi::Boolean::New(info.Env(), m_IsDummy); }
   Napi::Value author(const Napi::CallbackInfo &info) { return Napi::String::New(info.Env(), m_Author); }
   Napi::Value description(const Napi::CallbackInfo &info) { return Napi::String::New(info.Env(), m_Description); }
@@ -143,6 +148,7 @@ private:
       ESP::File wrapped(m_FileName);
       m_IsMaster = wrapped.isMaster();
       m_IsLight = wrapped.isLight();
+      m_isMedium = wrapped.isMedium();
       m_IsDummy = wrapped.isDummy();
       m_Author = wrapped.author();
       m_Description = wrapped.description();

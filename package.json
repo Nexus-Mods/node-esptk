@@ -1,6 +1,6 @@
 {
   "name": "esptk",
-  "version": "2.0.5",
+  "version": "2.1.1",
   "description": "read information from gamebryo esp/esm/esl files (very basic)",
   "repository": {
     "type": "git",
@@ -10,7 +10,7 @@
     "autogypi": "autogypi",
     "node-gyp": "node-gyp",
     "upload": "prebuild.cmd -r napi -t 4 -a x64 --prepack codesign",
-    "submodules": "git clone --branch noboost --depth=1 https://github.com/TanninOne/modorganizer-esptk esptk || exit /b 0",
+    "submodules": "git clone --branch master --depth=1 https://github.com/nexus-mods/parser-esptk esptk || exit /b 0",
     "rebuild": "npm run submodules && autogypi && node-gyp configure build",
     "install": "prebuild-install -r napi -t 4 -a x64 || npm run rebuild"
   },
