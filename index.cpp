@@ -53,6 +53,7 @@ void rethrow(const Napi::Env &env, const std::string &filePath, const std::excep
 
 class ESPFile : public Napi::ObjectWrap<ESPFile> {
 private:
+  std::string m_GameMode;
 #ifdef _WIN32
   std::wstring m_FileName;
 #else
@@ -100,6 +101,7 @@ public:
   ESPFile(const Napi::CallbackInfo &info)
     : Napi::ObjectWrap<ESPFile>(info)
   {
+    m_GameMode = info[1].ToString().Utf8Value();
     setFileName(info.Env(), info[0].ToString().Utf8Value());
   }
 
@@ -108,7 +110,7 @@ public:
       bool enable = info[0].ToBoolean();
       {
         ESP::File file(m_FileName);
-        file.setLight(enable);
+        file.setLight(enable, m_GameMode);
         file.write(m_FileName + exstring);
       }
       fs::rename(m_FileName + exstring, m_FileName);
@@ -147,7 +149,7 @@ private:
 
       ESP::File wrapped(m_FileName);
       m_IsMaster = wrapped.isMaster();
-      m_IsLight = wrapped.isLight();
+      m_IsLight = wrapped.isLight(m_GameMode);
       m_isMedium = wrapped.isMedium();
       m_IsDummy = wrapped.isDummy();
       m_Author = wrapped.author();
