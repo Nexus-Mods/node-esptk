@@ -20,12 +20,12 @@
   "author": "Black Tree Gaming Ltd.",
   "license": "GPL-3.0",
   "devDependencies": {
-    "prebuild": "^11.0.3"
+    "prebuild": "^12.0.0"
   },
   "dependencies": {
     "autogypi": "^0.2.2",
-    "node-addon-api": "^4.0.0",
-    "node-gyp": "^9.0.0",
-    "prebuild-install": "7.1.0"
+    "node-addon-api": "^7.0.0",
+    "node-gyp": "^10.0.0",
+    "prebuild-install": "^7.1.0"
   }
 }
