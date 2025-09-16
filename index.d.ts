@@ -1,6 +1,6 @@
 declare module 'esptk' {
   class ESPFile {
-    constructor(filePath: string);
+    constructor(filePath: string, gameMode: string);
     setLightFlag(enabled: boolean): void;
     isMaster: boolean;
     isMedium: boolean;
