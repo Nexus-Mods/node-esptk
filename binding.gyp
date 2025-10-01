@@ -10,7 +10,13 @@
                 "esptk/src/record.cpp",
                 "esptk/src/subrecord.cpp",
                 "string_cast.cpp",
-                "index.cpp"
+                "index.cpp",
+                "string_cast.h",
+                "esptk/src/espexceptions.h",
+                "esptk/src/espfile.h",
+                "esptk/src/esptypes.h",
+                "esptk/src/record.h",
+                "esptk/src/subrecord.h"
             ],
             "include_dirs": [
                 "<!(node -p \"require('node-addon-api').include_dir\")"
