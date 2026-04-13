@@ -5,6 +5,7 @@ declare module 'esptk' {
     isMaster: boolean;
     isMedium: boolean;
     isLight: boolean;
+    isBlueprint: boolean;
     isDummy: boolean;
     author: string;
     description: string;

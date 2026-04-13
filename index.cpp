@@ -61,6 +61,7 @@ private:
   bool m_IsMaster;
   bool m_IsLight;
   bool m_isMedium;
+  bool m_IsBlueprint;
   bool m_IsDummy;
   uint32_t m_Revision;
   std::string m_GameMode;
@@ -77,6 +78,8 @@ public:
       InstanceAccessor("isLight", &ESPFile::isLight, nullptr, napi_enumerable),
       
       InstanceAccessor("isMedium", &ESPFile::isMedium, nullptr, napi_enumerable),
+
+      InstanceAccessor("isBlueprint", &ESPFile::isBlueprint, nullptr, napi_enumerable),
 
       InstanceAccessor("isDummy", &ESPFile::isDummy, nullptr, napi_enumerable),
       InstanceAccessor("author", &ESPFile::author, nullptr, napi_enumerable),
@@ -125,6 +128,7 @@ public:
   Napi::Value isMaster(const Napi::CallbackInfo &info) { return Napi::Boolean::New(info.Env(), m_IsMaster); }
   Napi::Value isLight(const Napi::CallbackInfo &info) { return Napi::Boolean::New(info.Env(), m_IsLight); }
   Napi::Value isMedium(const Napi::CallbackInfo &info) { return Napi::Boolean::New(info.Env(), m_isMedium); }
+  Napi::Value isBlueprint(const Napi::CallbackInfo &info) { return Napi::Boolean::New(info.Env(), m_IsBlueprint); }
   Napi::Value isDummy(const Napi::CallbackInfo &info) { return Napi::Boolean::New(info.Env(), m_IsDummy); }
   Napi::Value author(const Napi::CallbackInfo &info) { return Napi::String::New(info.Env(), m_Author); }
   Napi::Value description(const Napi::CallbackInfo &info) { return Napi::String::New(info.Env(), m_Description); }
@@ -151,6 +155,7 @@ private:
       m_IsMaster = wrapped.isMaster();
       m_IsLight = wrapped.isLight(m_GameMode);
       m_isMedium = wrapped.isMedium();
+      m_IsBlueprint = wrapped.isBlueprint();
       m_IsDummy = wrapped.isDummy();
       m_Author = wrapped.author();
       m_Description = wrapped.description();
